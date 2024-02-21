@@ -1,8 +1,8 @@
-export default function Cart () {
+export default function Cart ({onHideCart}) {
 
     return <div className="fixed top-0 bottom-0 w-full flex justify-center items-center text-black" >
-        <div  className="absolute w-full h-full bg-black bg-opacity-60" onClick={() => {console.log('OnCancle')}}></div>
-        <div className="relative bg-white h-2/5 w-7/12 rounded overflow-hidden p-4" onClick={() => {console.log('Cart')}}>
+        <div  className="absolute w-full h-full bg-black bg-opacity-60"  onClick={onHideCart}></div>
+        <div className="relative bg-white h-2/5 w-7/12 rounded overflow-hidden p-4">
             <h2 className="font-bold pb-2 text-xl">Your Cart</h2>
             <ul className="overflow-y-auto h-32">
                 <li className="flex justify-between items-center">
@@ -16,7 +16,7 @@ export default function Cart () {
             </ul>
 
             <div className="text-right">
-                <button>Close</button>
+                <button onClick={onHideCart}>Close</button>
                 <button className="bg-yellow-300 px-2 py-1 rounded-lg mx-4">Got to Checkout</button>
             </div>
         </div>

@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { fetchMeals } from "../http";
 
-export default function FoodList() {
+export default function FoodList({onAddToCart}) {
   const [meals, setMeals] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState("");
@@ -20,8 +20,6 @@ export default function FoodList() {
 
     deriveMeals();
   }, []);
-
-  console.log(meals);
 
   return (
     <div>
@@ -44,7 +42,7 @@ export default function FoodList() {
                     ${meal.price}
                   </h3>
                   <p className="text-sm h-20">{meal.description}</p>
-                  <button className="my-2 p-1 w-32 font-medium text-sm text-black rounded bg-yellow-500">
+                  <button className="my-2 p-1 w-32 font-medium text-sm text-black rounded bg-yellow-500" onClick={() => onAddToCart(meal.id)}>
                     Add Cart
                   </button>
                 </div>
