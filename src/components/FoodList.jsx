@@ -42,7 +42,7 @@ export default function FoodList({onAddToCart}) {
                     ${meal.price}
                   </h3>
                   <p className="text-sm h-20">{meal.description}</p>
-                  <button className="my-2 p-1 w-32 font-medium text-sm text-black rounded bg-yellow-500" onClick={() => onAddToCart(meal.id)}>
+                  <button className="my-2 p-1 w-32 font-medium text-sm text-black rounded bg-yellow-500" onClick={() => onAddToCart(meal)}>
                     Add Cart
                   </button>
                 </div>
