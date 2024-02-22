@@ -22,7 +22,7 @@ export default function FoodList({onAddToCart}) {
   }, []);
 
   return (
-    <div>
+    <div className="my-4">
       {isLoading && <p className="text-center">Loading...</p>}
       <div className="w-3/4 m-auto grid grid-cols-3 gap-2">
         {!error &&
