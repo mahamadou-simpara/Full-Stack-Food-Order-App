@@ -26,7 +26,7 @@ function App() {
     <>
     <Header onShowCart={displayCart} />
     {showCart && <Cart onHideCart={hideCart}/>}
-    <Checkout />
+    {/* <Checkout /> */}
     <FoodList onAddToCart={addToCart}/>
     </>
   );
