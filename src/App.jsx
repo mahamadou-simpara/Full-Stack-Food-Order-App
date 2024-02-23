@@ -8,6 +8,7 @@ function App() {
 
   const [showCart, setShowCart] = useState(false);
   const [cart, setCart] = useState([]);
+  const [showCheckoutPage, setShowCheckoutPage] = useState(false);
 
 
   function displayCart () {
@@ -18,8 +19,9 @@ function App() {
     setShowCart(false)
   };
 
+
   
-  function addToCart(meal) {
+function addToCart(meal) {
     // Assuming cart is declared and initialized somewhere in your code
     const existingMealIndex = cart.findIndex(mealInCart => mealInCart.id === meal.id);
 
@@ -44,7 +46,7 @@ function increaseMealQuantity(id) {
       return updatedMeals;
   });
 }
-  function decreaseMealQuantity(id){
+function decreaseMealQuantity(id){
     setCart(prevMeals => {
       const updatedMeals = prevMeals.map(prevMeal => {
           if (prevMeal.id === id) {
@@ -55,13 +57,23 @@ function increaseMealQuantity(id) {
       }).filter(meal => meal.quantity > 0);
       return updatedMeals;
   });
-  }
+}
+
+function displayCheckoutPage () {
+  setShowCheckoutPage(true)
+}
+function onHideCheckoutPage () {
+  setShowCheckoutPage(false)
+}
+
+
+
 
   return (
     <>
     <Header onShowCart={displayCart} cartCount={cart.length}/>
-    {showCart && <Cart onHideCart={hideCart} meals={cart} onIncrease={increaseMealQuantity} onDecrease={decreaseMealQuantity}/>}
-    {/* <Checkout /> */}
+    {showCart && !showCheckoutPage && <Cart onHideCart={hideCart} meals={cart} onIncrease={increaseMealQuantity} onDecrease={decreaseMealQuantity} onDisplayCheckout={displayCheckoutPage}/>}
+    {showCheckoutPage && <Checkout onClose={onHideCheckoutPage} /> }
     <FoodList onAddToCart={addToCart}/>
     </>
   );

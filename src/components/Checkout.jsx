@@ -1,4 +1,4 @@
-export default function Checkout() {
+export default function Checkout({onClose}) {
   return (
     <div className="fixed top-0 bottom-0 w-full flex justify-center items-center text-black">
       <div className="absolute w-full h-full bg-black bg-opacity-60"></div>
@@ -43,7 +43,7 @@ export default function Checkout() {
           </div>
         </form>
         <div className="text-right">
-          <button>Close</button>
+          <button onClick={onClose}>Close</button>
           <button className="bg-yellow-400 px-3 py-1 rounded-md mx-4">
             Submit Order
           </button>
