@@ -1,7 +1,12 @@
-import { useEffect, useState } from "react"
+import { useEffect, useState } from "react";
+
 
 export default function Cart ({onHideCart, meals, onIncrease, onDecrease, onDisplayCheckout}) {
     const [totalAmount, setTotalAmount] = useState(0);
+
+
+
+
 
     useEffect(() => {
         let total = 0; // Initialize total outside the map function
@@ -11,10 +16,8 @@ export default function Cart ({onHideCart, meals, onIncrease, onDecrease, onDisp
         setTotalAmount(total); // Set the total amount after calculating for all meals
     }, [meals]);       
     
-    console.log(meals.length);
     const fallbackMessage = meals.length <= 0;
 
-    console.log(fallbackMessage);
 
     return <div className="fixed top-0 bottom-0 w-full flex justify-center items-center text-black" >
         <div  className="absolute w-full h-full bg-black bg-opacity-60"  onClick={onHideCart}></div>
