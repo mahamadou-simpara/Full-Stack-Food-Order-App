@@ -10,6 +10,7 @@ function App() {
   const [showCart, setShowCart] = useState(false);
   const [cart, setCart] = useState([]);
   const [showCheckoutPage, setShowCheckoutPage] = useState(false);
+  const [customer, setCustomer] = useState({});
 
 
   function displayCart () {
@@ -21,6 +22,9 @@ function App() {
   };
 
 
+  function deriveCustomerData (data) {
+    setCustomer(data)
+  };
   
 function addToCart(meal) {
     // Assuming cart is declared and initialized somewhere in your code
@@ -67,10 +71,10 @@ function onHideCheckoutPage () {
   setShowCheckoutPage(false)
 }
 
-
+console.log(customer);
   const contextValue = {
     cartItems: cart,
-    userData: [],
+    CustomerData: deriveCustomerData,
   }
 
   return (

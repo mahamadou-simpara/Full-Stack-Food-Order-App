@@ -3,7 +3,7 @@ import { createContext } from "react";
 
 const Context = createContext({
     cartItems: [],
-    userData: [],
+    CustomerData: () => {},
     totalPrice: 0,
 
 }
