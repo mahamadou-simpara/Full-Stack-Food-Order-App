@@ -2,6 +2,7 @@ import { useState } from 'react';
 import Cart from './components/Cart.jsx';
 import FoodList from './components/FoodList.jsx';
 import Header from './components/Header.jsx'
+import Context from './Context.js';
 import Checkout from './components/Checkout.jsx';
  
 function App() {
@@ -67,15 +68,18 @@ function onHideCheckoutPage () {
 }
 
 
-
+  const contextValue = {
+    cartItems: cart,
+    userData: [],
+  }
 
   return (
-    <>
+    <Context.Provider value={contextValue}>
     <Header onShowCart={displayCart} cartCount={cart.length}/>
     {showCart && !showCheckoutPage && <Cart onHideCart={hideCart} meals={cart} onIncrease={increaseMealQuantity} onDecrease={decreaseMealQuantity} onDisplayCheckout={displayCheckoutPage}/>}
     {showCheckoutPage && <Checkout onClose={onHideCheckoutPage} /> }
     <FoodList onAddToCart={addToCart}/>
-    </>
+    </Context.Provider>
   );
 }
 
