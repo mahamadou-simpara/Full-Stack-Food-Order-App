@@ -23,7 +23,7 @@ function App() {
 
 
   function deriveCustomerData (data) {
-    setCustomer(data)
+    setCustomer(data);
   };
   
 function addToCart(meal) {
