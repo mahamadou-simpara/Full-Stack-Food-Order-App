@@ -4,6 +4,7 @@ import FoodList from './components/FoodList.jsx';
 import Header from './components/Header.jsx'
 import Context from './Context.js';
 import Checkout from './components/Checkout.jsx';
+import {postMeals} from './http.js'
  
 function App() {
 
@@ -22,8 +23,26 @@ function App() {
   };
 
 
-  function deriveCustomerData (data) {
+  async function deriveCustomerData (data) {
     setCustomer(data);
+
+    const order = {
+      customer: {...data },
+      items: [...cart]
+    };
+
+    console.log(order);
+    try {
+      const response = await postMeals(order);
+      console.log(response);
+    }catch (error){
+      console.log(error);
+    }
+
+    setCart([]);
+    setCustomer([]);
+    setShowCart(false);
+    setShowCheckoutPage(false);
   };
   
 function addToCart(meal) {
@@ -71,7 +90,7 @@ function onHideCheckoutPage () {
   setShowCheckoutPage(false)
 }
 
-console.log(customer);
+// console.log(customer);
   const contextValue = {
     cartItems: cart,
     CustomerData: deriveCustomerData,
