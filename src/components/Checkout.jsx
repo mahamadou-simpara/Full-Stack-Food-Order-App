@@ -204,17 +204,6 @@ export default function Checkout({ onClose }) {
   const cityHasError = userData.city.trigger && userData.city.value.length < 2;
   const postalCodeHasError = userData.postalCode.trigger && userData.postalCode.value.length < 2;
 
-
-  // useEffect(() => {
-  //   let Prices = 0;
-
-  //   cartItems.forEach((meal) => {
-  //     Prices += +meal.price * +meal.quantity;
-  //   });
-
-  //   setTotalAmount(Prices);
-  // }, [cartItems]);
-
     useEffect(() => {
     calculateTotalAmount();
   }, [cartItems]);
@@ -235,10 +224,10 @@ export default function Checkout({ onClose }) {
     };
 
     const deriveData = {
-      fullName: userData.fullName.value,
+      name: userData.fullName.value,
       email: userData.email.value,
       city: userData.city.value,
-      postalCode: +userData.postalCode.value,
+      ['postal-code']: +userData.postalCode.value,
       street: userData.street.value
     }
     CustomerData(deriveData);

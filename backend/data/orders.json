@@ -1,1 +1,1 @@
-[]
+[{"customer":{"name":"Simpara","email":"msimpara@donin","city":"Bko","postal-code":234543,"street":"Bko"},"items":[{"id":"m8","name":"Sushi Roll Platter","price":"15.99","description":"An assortment of fresh sushi rolls including California, Spicy Tuna, and Eel Avocado.","image":"images/sushi-roll-platter.jpg","quantity":1},{"id":"m7","name":"Steak Frites","price":"17.99","description":"Succulent steak cooked to your preference, served with crispy golden fries and herb butter.","image":"images/steak-frites.jpg","quantity":1}],"id":"107.56940091446454"}]
